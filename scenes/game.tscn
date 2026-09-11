@@ -17,15 +17,6 @@ offset_right = 2744.0
 offset_bottom = 1580.0
 color = Color(0, 0, 0, 1)
 
-[node name="paddle1" parent="." instance=ExtResource("1_a11h5")]
-position = Vector2(1121, 325)
-
-[node name="paddle2" parent="." instance=ExtResource("2_r4lmy")]
-position = Vector2(33, 329)
-
-[node name="ball" parent="." instance=ExtResource("3_3e67s")]
-position = Vector2(604, 321)
-
 [node name="ScreenBoundaries" type="StaticBody2D" parent="."]
 
 [node name="Top" type="CollisionShape2D" parent="ScreenBoundaries"]
@@ -34,3 +25,14 @@ shape = SubResource("WorldBoundaryShape2D_v5c75")
 [node name="Bottom" type="CollisionShape2D" parent="ScreenBoundaries"]
 position = Vector2(2.08165e-12, 648)
 shape = SubResource("WorldBoundaryShape2D_pnr6s")
+
+[node name="GameObjects" type="Node" parent="."]
+
+[node name="paddle1" parent="GameObjects" instance=ExtResource("1_a11h5")]
+position = Vector2(1121, 325)
+
+[node name="paddle2" parent="GameObjects" instance=ExtResource("2_r4lmy")]
+position = Vector2(33, 329)
+
+[node name="ball" parent="GameObjects" instance=ExtResource("3_3e67s")]
+position = Vector2(604, 321)
