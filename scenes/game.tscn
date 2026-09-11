@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://h6jbxtyxth6b"]
+[gd_scene load_steps=8 format=3 uid="uid://h6jbxtyxth6b"]
 
 [ext_resource type="PackedScene" uid="uid://b1tyvylvc5qda" path="res://scenes/paddle_1.tscn" id="1_a11h5"]
 [ext_resource type="PackedScene" uid="uid://bsqt5v6mhktlm" path="res://scenes/paddle_2.tscn" id="2_r4lmy"]
@@ -8,6 +8,12 @@
 normal = Vector2(2.08165e-12, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pnr6s"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qlr5r"]
+normal = Vector2(-1, 2.08165e-12)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_01lgq"]
+normal = Vector2(1, 0)
 
 [node name="Game" type="Node2D"]
 
@@ -25,6 +31,14 @@ shape = SubResource("WorldBoundaryShape2D_v5c75")
 [node name="Bottom" type="CollisionShape2D" parent="ScreenBoundaries"]
 position = Vector2(2.08165e-12, 648)
 shape = SubResource("WorldBoundaryShape2D_pnr6s")
+
+[node name="Right" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(1152, 2.08165e-12)
+shape = SubResource("WorldBoundaryShape2D_qlr5r")
+
+[node name="Left" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("WorldBoundaryShape2D_01lgq")
 
 [node name="GameObjects" type="Node" parent="."]
 
