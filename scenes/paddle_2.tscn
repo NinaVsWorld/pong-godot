@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsqt5v6mhktlm"]
+[gd_scene load_steps=4 format=3 uid="uid://bsqt5v6mhktlm"]
 
 [ext_resource type="Texture2D" uid="uid://bnce15atrt6d8" path="res://assets/Computer.png" id="1_7c8hg"]
+[ext_resource type="Script" path="res://scripts/paddle_2.gd" id="1_jaorf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6j0ga"]
 size = Vector2(16, 120)
 
 [node name="paddle2" type="CharacterBody2D"]
+script = ExtResource("1_jaorf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_7c8hg")

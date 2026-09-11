@@ -3,3 +3,4 @@ res://scenes/paddle_1.tscn
 res://scenes/paddle_2.tscn
 res://scenes/ball.tscn
 res://scripts/paddle_1.gd
+res://scripts/paddle_2.gd
