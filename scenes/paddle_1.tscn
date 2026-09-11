@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1tyvylvc5qda"]
+[gd_scene load_steps=4 format=3 uid="uid://b1tyvylvc5qda"]
 
+[ext_resource type="Script" path="res://scripts/paddle_1.gd" id="1_1vume"]
 [ext_resource type="Texture2D" uid="uid://c7h2l5j0cjcep" path="res://assets/Player.png" id="1_ex80v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2vic"]
 size = Vector2(17, 119)
 
 [node name="paddle1" type="CharacterBody2D"]
+script = ExtResource("1_1vume")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ex80v")

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://h6jbxtyxth6b"]
+[gd_scene load_steps=4 format=3 uid="uid://h6jbxtyxth6b"]
 
 [ext_resource type="PackedScene" uid="uid://b1tyvylvc5qda" path="res://scenes/paddle_1.tscn" id="1_a11h5"]
+[ext_resource type="PackedScene" uid="uid://bsqt5v6mhktlm" path="res://scenes/paddle_2.tscn" id="2_r4lmy"]
+[ext_resource type="PackedScene" uid="uid://cm7o153c453p8" path="res://scenes/ball.tscn" id="3_3e67s"]
 
 [node name="Game" type="Node2D"]
 
@@ -12,3 +14,9 @@ color = Color(0, 0, 0, 1)
 
 [node name="paddle1" parent="." instance=ExtResource("1_a11h5")]
 position = Vector2(1121, 325)
+
+[node name="paddle2" parent="." instance=ExtResource("2_r4lmy")]
+position = Vector2(33, 329)
+
+[node name="ball" parent="." instance=ExtResource("3_3e67s")]
+position = Vector2(604, 321)
