@@ -1,10 +1,10 @@
+StaticBody2D
+CanvasLayer
 CollisionShape2D
 RigidBody2D
 CharacterBody2D
-StaticBody2D
 Panel
 Label
-CanvasLayer
 Node
 ColorRect
 Node2D

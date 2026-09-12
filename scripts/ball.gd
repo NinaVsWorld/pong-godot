@@ -5,6 +5,7 @@ const INIT_SPEED = 400.0
 const MAX_Y_VECTOR = 0.5
 var speed = INIT_SPEED
 var direction
+@onready var game_manager = %GameManager
 
 # position the ball in the middle of the screen at the start
 func _ready():
@@ -19,7 +20,12 @@ func _physics_process(delta):
 		var collider = collision.get_collider()
 		
 		# if ball hits paddles
-		if collider.name == "paddle1" or collider.name == "paddle2":
+		if collider.name == "paddle1":
+			game_manager.add_point1()
+			speed = speed * 1.05
+			direction = new_direction(collider)
+		elif collider.name == "paddle2":
+			game_manager.add_point2()
 			speed = speed * 1.05
 			direction = new_direction(collider)
 		# if ball bounces off walls, normal bounce
