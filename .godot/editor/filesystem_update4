@@ -5,3 +5,4 @@ res://scenes/ball.tscn
 res://scripts/paddle_1.gd
 res://scripts/paddle_2.gd
 res://scripts/ball.gd
+res://scripts/GameManager.gd

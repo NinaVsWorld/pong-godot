@@ -3,17 +3,16 @@
 [ext_resource type="Script" path="res://scripts/paddle_1.gd" id="1_1vume"]
 [ext_resource type="Texture2D" uid="uid://c7h2l5j0cjcep" path="res://assets/Player.png" id="1_ex80v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2vic"]
-size = Vector2(17, 119)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3xyk"]
+size = Vector2(16, 120)
 
 [node name="paddle1" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 5
 script = ExtResource("1_1vume")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ex80v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
-shape = SubResource("RectangleShape2D_h2vic")
+shape = SubResource("RectangleShape2D_i3xyk")

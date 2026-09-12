@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 450.0
 @onready var paddle2 = $Sprite2D
+@onready var game_manager = %GameManager
 
 # sets default starting position of paddle
 func _ready():
@@ -17,3 +18,10 @@ func _physics_process(delta):
 	if Input.is_action_pressed("s"):
 		velocity.y += SPEED
 	move_and_slide()
+
+# update score for player when ball hits paddle
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider.name == "ball":
+			game_manager.add_point2()
