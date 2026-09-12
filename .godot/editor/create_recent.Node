@@ -1,7 +1,9 @@
-CharacterBody2D
-Area2D
 Node
-Sprite2D
-CollisionShape2D
-StaticBody2D
 ColorRect
+Node2D
+CharacterBody2D
+StaticBody2D
+Sprite2D
+Label
+Area2D
+CollisionShape2D

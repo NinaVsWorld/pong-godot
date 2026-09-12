@@ -7,6 +7,7 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qlr5r"]
 normal = Vector2(-1, 2.08165e-12)
+distance = 11.0741
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pnr6s"]
 
@@ -17,11 +18,12 @@ normal = Vector2(2.08165e-12, 1)
 normal = Vector2(1, 0)
 
 [node name="Game" type="Node2D"]
+texture_filter = 1
+scale = Vector2(3.85619, 3.85714)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -4096
-offset_right = 2744.0
-offset_bottom = 1580.0
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 299.0
+offset_bottom = 168.0
 color = Color(0, 0, 0, 1)
 
 [node name="ScreenBoundaries" type="StaticBody2D" parent="."]
@@ -29,11 +31,11 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="Right" type="CollisionShape2D" parent="ScreenBoundaries"]
-position = Vector2(1152, 2.08165e-12)
+position = Vector2(309.873, 60.5187)
 shape = SubResource("WorldBoundaryShape2D_qlr5r")
 
 [node name="Bottom" type="CollisionShape2D" parent="ScreenBoundaries"]
-position = Vector2(2.08165e-12, 648)
+position = Vector2(4.94215, 169.452)
 shape = SubResource("WorldBoundaryShape2D_pnr6s")
 
 [node name="Top" type="CollisionShape2D" parent="ScreenBoundaries"]
@@ -46,17 +48,26 @@ shape = SubResource("WorldBoundaryShape2D_01lgq")
 [node name="GameObjects" type="Node" parent="."]
 
 [node name="paddle1" parent="GameObjects" instance=ExtResource("1_a11h5")]
-position = Vector2(1139, 327)
+position = Vector2(1091, 324)
 scale = Vector2(1.25, 1.25)
 
 [node name="paddle2" parent="GameObjects" instance=ExtResource("2_r4lmy")]
-position = Vector2(12, 332)
+position = Vector2(12, 324)
 scale = Vector2(1.25, 1.25)
 
 [node name="ball" parent="GameObjects" instance=ExtResource("3_3e67s")]
-position = Vector2(604, 321)
+position = Vector2(582, 324)
 scale = Vector2(1.25, 1.25)
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_y8ims")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Divider" type="ColorRect" parent="."]
+offset_left = 149.5
+offset_right = 151.5
+offset_bottom = 168.0
