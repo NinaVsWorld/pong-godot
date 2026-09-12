@@ -5,17 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://cm7o153c453p8" path="res://scenes/ball.tscn" id="3_3e67s"]
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="4_y8ims"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qlr5r"]
-normal = Vector2(-1, 2.08165e-12)
-distance = 11.0741
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w28hj"]
+distance = 4.04071
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pnr6s"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kral8"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_v5c75"]
-normal = Vector2(2.08165e-12, 1)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_06pr0"]
+distance = -218.61
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_01lgq"]
-normal = Vector2(1, 0)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0a28s"]
 
 [node name="Game" type="Node2D"]
 texture_filter = 1
@@ -30,20 +28,26 @@ color = Color(0, 0, 0, 1)
 collision_layer = 4
 collision_mask = 0
 
-[node name="Right" type="CollisionShape2D" parent="ScreenBoundaries"]
-position = Vector2(309.873, 60.5187)
-shape = SubResource("WorldBoundaryShape2D_qlr5r")
-
 [node name="Bottom" type="CollisionShape2D" parent="ScreenBoundaries"]
-position = Vector2(4.94215, 169.452)
-shape = SubResource("WorldBoundaryShape2D_pnr6s")
+position = Vector2(150.213, 173.596)
+scale = Vector2(1, 1)
+shape = SubResource("WorldBoundaryShape2D_w28hj")
 
 [node name="Top" type="CollisionShape2D" parent="ScreenBoundaries"]
-shape = SubResource("WorldBoundaryShape2D_v5c75")
+position = Vector2(147.036, -1.03704)
+rotation = 3.14159
+scale = Vector2(1, 1)
+shape = SubResource("WorldBoundaryShape2D_kral8")
 
 [node name="Left" type="CollisionShape2D" parent="ScreenBoundaries"]
-position = Vector2(2.08165e-12, 2.08165e-12)
-shape = SubResource("WorldBoundaryShape2D_01lgq")
+position = Vector2(94.653, 15.037)
+rotation = 4.71239
+shape = SubResource("WorldBoundaryShape2D_06pr0")
+
+[node name="Right" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2(-12.7068, 0.259259)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_0a28s")
 
 [node name="GameObjects" type="Node" parent="."]
 
@@ -63,11 +67,43 @@ scale = Vector2(1.25, 1.25)
 unique_name_in_owner = true
 script = ExtResource("4_y8ims")
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-
 [node name="Divider" type="ColorRect" parent="."]
 offset_left = 149.5
 offset_right = 151.5
 offset_bottom = 168.0
+
+[node name="Scores" type="CanvasLayer" parent="."]
+
+[node name="Player1" type="Label" parent="Scores"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -329.0
+offset_right = -21.0
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+
+[node name="Player2" type="Label" parent="Scores"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 34.0
+offset_top = -329.0
+offset_right = 84.0
+offset_bottom = -260.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1

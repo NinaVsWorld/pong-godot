@@ -1,20 +1,19 @@
-extends CharacterBody2D
+extends RigidBody2D
 
-const INIT_SPEED = 250.0
+const INIT_SPEED = 400.0
 # max angle ball can bounce off of paddle
 const MAX_Y_VECTOR = 0.5
 var speed = INIT_SPEED
 var direction
-@onready var ball = $Sprite2D
 
 # position the ball in the middle of the screen at the start
 func _ready():
 	reset_ball()
 	direction = get_random_direction()
 
-# the ball should speed up by 5% every bounce off a paddle
 func _physics_process(delta):
 	var collision = move_and_collide(direction * speed * delta)
+		
 	if collision:
 		# if collision is on wall, set the ball back to centre
 		var collider = collision.get_collider()
@@ -24,9 +23,19 @@ func _physics_process(delta):
 			speed = speed * 1.05
 			direction = new_direction(collider)
 		# if ball bounces off walls, normal bounce
-		else:
-			direction = direction.bounce(collision.get_normal())
-
+		elif collider.name == "ScreenBoundaries":
+			# get the shape index
+			var shape_index = collision.get_collider_shape_index()
+			# get the shape owner id
+			var shape_owner_id = collider.shape_find_owner(shape_index)
+			# get the actual shape
+			var hit_shape = collider.shape_owner_get_owner(shape_owner_id)
+			if hit_shape.name == "Bottom" or hit_shape.name == "Top":
+				direction = direction.bounce(collision.get_normal())
+			else:
+				# delay the reset
+				await get_tree().create_timer(1).timeout
+				reset_ball()
 	
 # random direction function
 func get_random_direction() -> Vector2:
@@ -56,3 +65,4 @@ func reset_ball():
 	var screen_size = get_viewport_rect().size
 	position = Vector2(screen_size.x / 2, screen_size.y / 2)
 	direction = get_random_direction()
+	speed = INIT_SPEED
