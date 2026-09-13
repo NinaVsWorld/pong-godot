@@ -1,9 +1,10 @@
 Button
-VBoxContainer
+RichTextLabel
 Panel
 CanvasLayer
-PanelContainer
 Label
+VBoxContainer
+PanelContainer
 ColorRect
 CharacterBody2D
 StaticBody2D
@@ -11,4 +12,3 @@ CollisionShape2D
 RigidBody2D
 Node
 Node2D
-Sprite2D

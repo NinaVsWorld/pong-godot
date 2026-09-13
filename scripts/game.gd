@@ -15,10 +15,11 @@ func scored(paddle : String):
 		game_manager.add_point2()
 		
 func _process(delta):
+	pause_pressed()
 	game_over()
 	
 func game_over():
-	if game_manager.get_player1_score() >= 1 or game_manager.get_player2_score() >= 15:
+	if game_manager.get_player1_score() >= 15 or game_manager.get_player2_score() >= 15:
 		get_tree().paused = true
 		end_menu.show()
 
@@ -29,3 +30,8 @@ func _on_restart_pressed():
 func _on_home_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	
+func pause_pressed():
+	if Input.is_action_pressed("space"):
+		get_tree().paused = true
+		end_menu.show()

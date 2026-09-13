@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c22pntgxxe8ou"]
+[gd_scene load_steps=7 format=3 uid="uid://c22pntgxxe8ou"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_34tdb"]
 
@@ -24,6 +24,14 @@ shadow_size = 5
 shadow_offset = Vector2(2.08165e-12, 3.41)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7bhhl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ht2ii"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -100,5 +108,50 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_7bhhl")
 text = "Computer
 "
 
+[node name="instructions" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Instructions"
+
+[node name="Instructions" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="Instructions"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = -124.0
+offset_right = 208.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ht2ii")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Instructions"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.5
+offset_top = -65.0
+offset_right = 193.5
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "- in game: press space bar to access pause menu
+- classic mode: use up/down arrow keys and w/s keys"
+
+[node name="close" type="Button" parent="Instructions"]
+offset_left = 733.0
+offset_top = 203.0
+offset_right = 781.0
+offset_bottom = 234.0
+text = "close"
+
 [connection signal="pressed" from="VBoxContainer/classic" to="." method="_on_classic_pressed"]
 [connection signal="pressed" from="VBoxContainer/computer" to="." method="_on_computer_pressed"]
+[connection signal="pressed" from="VBoxContainer/instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="Instructions/close" to="." method="_on_close_pressed"]
