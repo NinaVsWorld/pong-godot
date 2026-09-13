@@ -7,3 +7,5 @@ res://scripts/ball.gd
 res://scripts/GameManager.gd
 res://scripts/paddle_1.gd
 res://scripts/game.gd
+res://scenes/main_menu.tscn
+res://scripts/main_menu.gd
