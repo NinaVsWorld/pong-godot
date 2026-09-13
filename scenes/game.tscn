@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://h6jbxtyxth6b"]
+[gd_scene load_steps=10 format=3 uid="uid://h6jbxtyxth6b"]
 
 [ext_resource type="PackedScene" uid="uid://b1tyvylvc5qda" path="res://scenes/paddle_1.tscn" id="1_a11h5"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_l2gs2"]
 [ext_resource type="PackedScene" uid="uid://bsqt5v6mhktlm" path="res://scenes/paddle_2.tscn" id="2_r4lmy"]
 [ext_resource type="PackedScene" uid="uid://cm7o153c453p8" path="res://scenes/ball.tscn" id="3_3e67s"]
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="4_y8ims"]
-[ext_resource type="PackedScene" uid="uid://hvnngik7l0qa" path="res://scenes/end_menu.tscn" id="6_o2ixl"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w28hj"]
 distance = 4.04071
@@ -108,11 +107,43 @@ offset_left = 149.5
 offset_right = 151.5
 offset_bottom = 168.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="EndMenu" type="CanvasLayer" parent="."]
 
-[node name="EndMenu" parent="CanvasLayer" instance=ExtResource("6_o2ixl")]
+[node name="Panel" type="Panel" parent="EndMenu"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -165.5
+offset_top = -146.0
+offset_right = 165.5
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndMenu"]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -54.0
+offset_right = 78.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="restart" type="Button" parent="EndMenu/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="home" type="Button" parent="EndMenu/VBoxContainer"]
+layout_mode = 2
+text = "Home
+"
+
+[connection signal="pressed" from="EndMenu/VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="EndMenu/VBoxContainer/home" to="." method="_on_home_pressed"]

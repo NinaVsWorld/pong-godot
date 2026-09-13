@@ -1,10 +1,10 @@
+Button
+VBoxContainer
+Panel
 CanvasLayer
 PanelContainer
-Panel
 Label
 ColorRect
-VBoxContainer
-Button
 CharacterBody2D
 StaticBody2D
 CollisionShape2D
