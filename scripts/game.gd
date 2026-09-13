@@ -2,9 +2,11 @@ extends Node2D
 
 @onready var game_manager = %GameManager
 @onready var ball = $GameObjects/ball
+@onready var canvas_layer = $CanvasLayer
 
 func _ready():
 	ball.point_scored.connect(scored)
+	canvas_layer.hide()
 
 func scored(paddle : String):
 	if paddle == "paddle1":
@@ -15,11 +17,8 @@ func scored(paddle : String):
 
 func _process(delta):
 	game_over()
-	# pop up the end menu here
 	
-# game over mechanic
-# if func get points for player is at the limit
-# pause game, print over
 func game_over():
 	if game_manager.get_player1_score() >= 15 or game_manager.get_player2_score() >= 15:
 		get_tree().paused = true
+		canvas_layer.show()
