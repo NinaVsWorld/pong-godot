@@ -12,3 +12,9 @@ func add_point1():
 func add_point2():
 	player2_score += 1
 	player_2.text = str(player2_score)
+
+func get_player1_score() -> int:
+	return player1_score
+
+func get_player2_score() -> int:
+	return player2_score

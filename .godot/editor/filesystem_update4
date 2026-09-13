@@ -6,3 +6,4 @@ res://scripts/paddle_2.gd
 res://scripts/ball.gd
 res://scripts/GameManager.gd
 res://scripts/paddle_1.gd
+res://scripts/game.gd

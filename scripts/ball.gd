@@ -1,11 +1,12 @@
-extends RigidBody2D
+extends CharacterBody2D
 
 const INIT_SPEED = 400.0
 # max angle ball can bounce off of paddle
 const MAX_Y_VECTOR = 0.5
 var speed = INIT_SPEED
 var direction
-@onready var game_manager = %GameManager
+var can_bounce = true
+signal point_scored(paddle : String)
 
 # position the ball in the middle of the screen at the start
 func _ready():
@@ -21,13 +22,20 @@ func _physics_process(delta):
 		
 		# if ball hits paddles
 		if collider.name == "paddle1":
-			game_manager.add_point1()
-			speed = speed * 1.05
-			direction = new_direction(collider)
+			if can_bounce:
+				point_scored.emit("paddle1")
+				speed = speed * 1.05
+				direction = new_direction(collider)
+				# prevents double bouncing off of paddles
+				global_position += direction * 2.0
+				get_tree().create_timer(0.05).timeout.connect(reset_bounce)
 		elif collider.name == "paddle2":
-			game_manager.add_point2()
-			speed = speed * 1.05
-			direction = new_direction(collider)
+			if can_bounce:
+				point_scored.emit("paddle2")
+				speed = speed * 1.05
+				direction = new_direction(collider)
+				global_position += direction * 2.0
+				get_tree().create_timer(0.05).timeout.connect(reset_bounce)
 		# if ball bounces off walls, normal bounce
 		elif collider.name == "ScreenBoundaries":
 			# get the shape index
@@ -51,13 +59,14 @@ func get_random_direction() -> Vector2:
 	return new_direction.normalized()
 
 # new direction
-func new_direction(collider):
+func new_direction(collider) -> Vector2:
 	var ball_y = position.y
 	var pad_y = collider.position.y
 	var dist = ball_y - pad_y
 	var new_dir = Vector2()
 	var collision_shape = collider.get_node_or_null("CollisionShape2D")
 	var shape = collision_shape.shape
+	can_bounce = false
 		
 	# flip the horizontal direction when ball hits paddle
 	if direction.x > 0:
@@ -72,3 +81,6 @@ func reset_ball():
 	position = Vector2(screen_size.x / 2, screen_size.y / 2)
 	direction = get_random_direction()
 	speed = INIT_SPEED
+
+func reset_bounce():
+	can_bounce = true

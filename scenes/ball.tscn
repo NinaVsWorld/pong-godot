@@ -1,9 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm7o153c453p8"]
+[gd_scene load_steps=4 format=3 uid="uid://cm7o153c453p8"]
 
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_ghru8"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_eh1yt"]
-bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jqfrb"]
 radius = 7.51665
@@ -15,13 +12,9 @@ corner_radius_top_right = 999
 corner_radius_bottom_right = 999
 corner_radius_bottom_left = 999
 
-[node name="ball" type="RigidBody2D"]
+[node name="ball" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
-physics_material_override = SubResource("PhysicsMaterial_eh1yt")
-gravity_scale = 1.66533e-16
-freeze = true
-freeze_mode = 1
 script = ExtResource("1_ghru8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -42,5 +35,3 @@ offset_bottom = 7.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xcxpp")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
