@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://rkmu6265euqy"]
-
-[ext_resource type="Texture2D" uid="uid://q5fncauh20ci" path="res://assets/ScoreBar.png" id="1_iw52o"]
-
-[node name="ScoreBar" type="Node2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_iw52o")
