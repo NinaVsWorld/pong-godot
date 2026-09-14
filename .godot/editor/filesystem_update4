@@ -11,3 +11,6 @@ res://scenes/main_menu.tscn
 res://scripts/main_menu.gd
 res://scenes/end_menu.tscn
 res://scripts/end_menu.gd
+res://scenes/main.tscn
+res://scripts/main.gd
+res://scripts/player.gd
